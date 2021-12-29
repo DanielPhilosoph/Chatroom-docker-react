@@ -27,8 +27,18 @@ io.on("connection", (socket) => {
   console.log("a user connected");
 
   socket.on("onConnect", ({ name, id }) => {
-    connectedUsers.push({ id: id, name: name, socketId: socket.id });
-    console.log(connectedUsers);
+    const user = connectedUsers.find((user) => user.id === id);
+    // ? If did find any connected user with the same id, so add
+    if (!user) {
+      connectedUsers.push({ id: id, name: name, socketId: socket.id });
+    } else {
+      // ? Else update socket id
+      connectedUsers.map((user) => {
+        if (user.id === id) {
+          user.socketId = socket.id;
+        }
+      });
+    }
     io.emit("newConnection", {
       id: id,
       name: name,
@@ -38,6 +48,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("message", (info) => {
+    console.log(socket.id);
     io.emit("messageBack", {
       name: info.name,
       id: info.id,
@@ -46,6 +57,9 @@ io.on("connection", (socket) => {
     });
   });
 
+  //? -----------------------------------
+  //! Understand how this works and implement!!
+  //? -----------------------------------
   socket.on("privateMessage", (anotherSocketId, msg) => {
     socket.to(anotherSocketId).emit("privateMessage", socket.id, msg);
   });

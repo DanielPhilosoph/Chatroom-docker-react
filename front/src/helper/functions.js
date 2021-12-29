@@ -15,5 +15,5 @@ export function validateName(name) {
 
 export function formatDate(time) {
   const date = new Date(time);
-  return moment(date).format("HH:DD");
+  return moment(date).format("HH:mm");
 }

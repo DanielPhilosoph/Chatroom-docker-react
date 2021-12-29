@@ -9,7 +9,6 @@ import ConnectedUser from "./ConnectedUser";
 export default function Chat({ socketRef }) {
   const messageRef = useRef();
   const state = useSelector((state_) => state_);
-  console.log(state);
 
   const onSendClick = (e) => {
     e.preventDefault();
@@ -40,6 +39,10 @@ export default function Chat({ socketRef }) {
           <img className="chatLogo" src="/images/chat.png" alt="Img" />
           <span className="chatHeaderText">Chat</span>
         </div>
+        {/*
+        // TODO when talking to someone private - should change to load private messages
+        // TODO when to many messages, show create a scroll
+        */}
         <div className="massagesWarperDiv">
           {state.messages.map((message) => {
             switch (message.type) {
