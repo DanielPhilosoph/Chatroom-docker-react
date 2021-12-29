@@ -39,7 +39,7 @@ body {
 .usersOnlineDiv {
   flex-grow: 3;
   width: 10%;
-  background-color: salmon;
+  background-color: #8d99a7;
   height: 800px;
 }
 .chatDiv {
@@ -58,17 +58,19 @@ body {
 }
 
 .usersOnlineHeaderDiv {
-  background-color: silver;
+  background-color: #315b8a;
   height: 60px;
   font-family: "Raleway", sans-serif;
   font-size: 30px;
   padding: 5px 10px;
+  color: whitesmoke;
 }
 
 .chatHeaderDiv {
-  background-color: rgb(114, 114, 114);
+  background-color: #165eb1;
   height: 60px;
   padding: 7px 10px;
+  color: whitesmoke;
 }
 
 .chatLogo {
@@ -98,19 +100,19 @@ body {
 }
 
 .messageInput {
-  width: 85%;
+  width: 92%;
   height: 30px;
   border-radius: 5px;
   border: 0;
+  background: transparent;
 }
 
 .sendButton {
-  padding: 7px;
+  padding: 3px 10px;
   margin-left: 22px;
-  border: 0.1px solid blue;
+  border: 0.1px solid rgb(92, 92, 92);
   border-radius: 50%;
-  font-size: 16px;
-  background-color: rgb(45, 45, 253);
+  background-color: rgb(92, 92, 92);
   color: whitesmoke;
 }
 

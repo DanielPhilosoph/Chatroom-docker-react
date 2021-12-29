@@ -15,7 +15,11 @@ export default function Chat() {
         </div>
         <div className="massagesWarperDiv">sss</div>
         <div className="sendMassageDiv">
-          <input type="text" className="messageInput" />
+          <input
+            type="text"
+            className="messageInput"
+            placeholder="Type a message..."
+          />
           <button type="submit" className="sendButton">
             <i className="far fa-paper-plane" />
           </button>
