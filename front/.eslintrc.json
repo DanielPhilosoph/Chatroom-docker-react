@@ -27,10 +27,7 @@
             "error",
             "double"
         ],
-        "comma-dangle": [
-            "error",
-            "never"
-        ],
+        "comma-dangle": 0,
         "linebreak-style": 0
     }
 }

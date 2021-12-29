@@ -1,12 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function Chat() {
+export default function Chat({ username }) {
   return (
     <div className="warperChatDiv">
       <div className="usersOnlineDiv">
         <div className="usersOnlineHeaderDiv">
           <span className="usersOnlineText">Online Users</span>
         </div>
+        <div>{username}</div>
       </div>
       <div className="chatDiv">
         <div className="chatHeaderDiv">
@@ -28,3 +30,7 @@ export default function Chat() {
     </div>
   );
 }
+
+Chat.propTypes = {
+  username: PropTypes.string.isRequired,
+};

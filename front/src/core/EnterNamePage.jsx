@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { validateName } from "../helper/functions";
 
-export default function EnterNamePage() {
+export default function EnterNamePage({ setUsername }) {
   const navigate = useNavigate();
   const nameInput = useRef();
   const errorRef = useRef();
@@ -13,7 +14,7 @@ export default function EnterNamePage() {
     e.preventDefault();
     const response = validateName(nameInput.current.value);
     if (response.valid) {
-      // GOOD
+      setUsername(nameInput.current.value);
       navigate("/chat-room");
     } else {
       errorRef.current.innerText = response.error;
@@ -37,3 +38,7 @@ export default function EnterNamePage() {
     </div>
   );
 }
+
+EnterNamePage.propTypes = {
+  setUsername: PropTypes.func.isRequired,
+};
