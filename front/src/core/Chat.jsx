@@ -1,21 +1,33 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import Message from "./Message";
 
-export default function Chat({ username }) {
+export default function Chat() {
+  const state = useSelector((state_) => state_);
+  console.log(state);
   return (
     <div className="warperChatDiv">
       <div className="usersOnlineDiv">
         <div className="usersOnlineHeaderDiv">
           <span className="usersOnlineText">Online Users</span>
         </div>
-        <div>{username}</div>
       </div>
       <div className="chatDiv">
         <div className="chatHeaderDiv">
           <img className="chatLogo" src="/images/chat.png" alt="Img" />
           <span className="chatHeaderText">Chat</span>
         </div>
-        <div className="massagesWarperDiv">sss</div>
+        <div className="massagesWarperDiv">
+          {" "}
+          <Message
+            isMyMessage={false}
+            username="daniel"
+            message="Im a"
+            time="12:12"
+            id="insomnia"
+          />
+
+        </div>
         <div className="sendMassageDiv">
           <input
             type="text"
@@ -30,7 +42,3 @@ export default function Chat({ username }) {
     </div>
   );
 }
-
-Chat.propTypes = {
-  username: PropTypes.string.isRequired,
-};
