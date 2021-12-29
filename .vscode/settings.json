@@ -1,11 +1,7 @@
 {
-    "editor.formatOnSave": false,
-    // Runs Prettier, then ESLint
-    "editor.codeActionsOnSave": [
-        "source.formatDocument",
-        "source.fixAll.eslint"
-    ],
-    "vetur.validation.template": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+    },
     "eslint.validate": [
         "javascript"
     ]

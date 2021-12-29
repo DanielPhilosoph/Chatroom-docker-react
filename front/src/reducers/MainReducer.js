@@ -27,12 +27,18 @@ export default function MainReducer(state = initialState, action = "") {
           { name: action.payload.name, id: action.payload.id },
         ],
       };
+    case "SET_CONNECTED_USERS":
+      return {
+        ...state,
+        connectedUsers: action.payload.connectedUsers,
+      };
     case "ADD_TO_MESSAGES":
       return {
         ...state,
         messages: [
           ...state.messages,
           {
+            type: action.payload.type,
             name: action.payload.name,
             id: action.payload.id,
             message: action.payload.message,

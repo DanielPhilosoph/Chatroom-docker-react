@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export function validateName(name) {
   if (name === "") {
     return { valid: false, error: "Can't be null" };
@@ -11,7 +13,7 @@ export function validateName(name) {
   return { valid: true };
 }
 
-export function temp() {
-  const x = 3;
-  return x;
+export function formatDate(time) {
+  const date = new Date(time);
+  return moment(date).format("HH:DD");
 }

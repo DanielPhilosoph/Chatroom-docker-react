@@ -119,7 +119,7 @@ body {
 /*  Message + Self   */
 /* ----------------- */
 
-.message{
+.message {
   margin: 20px;
   padding: 15px;
   max-width: 60%;
@@ -131,45 +131,107 @@ body {
   word-break: break-word;
 }
 
-.messageName{
+.messageName {
   font-size: 14px;
   color: cadetblue;
 }
 
-.messageText{
+.messageText {
   display: block;
 }
 
-.messageTime{
+.messageTime {
   display: block;
   text-align: right;
   font-size: 12px;
 }
 
-.messageSelf{
-  float: right;
+.messageSelf {
   margin: 20px;
+  margin-left: auto;
   padding: 15px;
   max-width: 60%;
   min-width: 20%;
   background-color: rgb(87, 160, 126);
   border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
   word-break: break-word;
 }
 
-.messageNameSelf{
+.messageNameSelf {
   font-size: 14px;
   color: rgb(255, 255, 255);
 }
 
-.messageTextSelf{
-  display: block;
+/* ----------------- */
+/*  Special Message  */
+/* ----------------- */
+
+.disconnectMessage > .messageTextSpecial {
+  color: rgb(255, 52, 52);
 }
 
-.messageTimeSelf{
-  display: block;
-  text-align: right;
+.connectedMessage,
+.disconnectMessage {
+  margin: 20px;
+  padding: 15px;
+  max-width: 60%;
+  min-width: 20%;
+  background-color: rgb(57, 99, 128);
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  word-break: break-word;
+  color: whitesmoke;
+}
+
+.messageTimeSpecial {
+  padding-left: 30px;
+  max-width: 60%;
+  float: right;
   font-size: 12px;
+}
+
+.connectedMessage > .messageTextSpecial {
+  color: lawngreen;
+}
+
+/* ----------------- */
+/*  Connected Users  */
+/* ----------------- */
+
+.connectedUserDiv {
+  width: 98%;
+  background-color: #8d99a7;
+  margin: auto;
+  display: flex;
+  position: relative;
+}
+
+.connectedUserDiv:hover {
+  background-color: #bfc4ca;
+}
+
+.connectedUserName {
+  width: 80%;
+  padding: 20px 15px;
+  border-top: 0.5px solid #bfc4ca;
+  border-bottom: 0.5px solid #bfc4ca;
+  font-size: 18px;
+  word-break: break-word;
+}
+
+.connectedUserImg {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.connectedUserImgDiv {
+  padding: 10px;
+  display: flex;
+  justify-items: center;
+  margin: auto 0;
 }
 
 @media screen and (max-width: 900px) {

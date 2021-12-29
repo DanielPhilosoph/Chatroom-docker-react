@@ -1,29 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { formatDate } from "../helper/functions";
 
-export default function Message(
-  {
-    isMyMessage,
-    username,
-    message,
-    time,
-    id
-  }
-) {
+export default function Message({ isMyMessage, username, message, time, id }) {
+  const formattedDate = formatDate(time);
   if (!isMyMessage) {
     return (
       <div className="message" id={id}>
         <span className="messageName">{username}</span>
         <span className="messageText">{message}</span>
-        <span className="messageTime">{time}</span>
+        <span className="messageTime">{formattedDate}</span>
       </div>
     );
   }
   return (
     <div className="messageSelf" id={id}>
       <span className="messageNameSelf">{username}</span>
-      <span className="messageTextSelf">{message}</span>
-      <span className="messageTimeSelf">{time}</span>
+      <span className="messageText">{message}</span>
+      <span className="messageTime">{formattedDate}</span>
     </div>
   );
 }

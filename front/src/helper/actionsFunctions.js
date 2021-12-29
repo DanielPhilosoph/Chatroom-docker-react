@@ -2,6 +2,7 @@ import {
   ADD_CONNECTED_USER,
   ADD_TO_MESSAGES,
   REMOVE_CONNECTED_USER,
+  SET_CONNECTED_USERS,
   SET_USERNAME_AND_ID,
 } from "../Actions";
 
@@ -26,10 +27,18 @@ export function addConnectedUser(id, name) {
   };
 }
 
-export function addToMessages(id, name, message, time) {
+export function setConnectedUsers(connectedUsers) {
+  return {
+    type: SET_CONNECTED_USERS,
+    payload: { connectedUsers },
+  };
+}
+
+export function addToMessages(id, name, message, time, type) {
   return {
     type: ADD_TO_MESSAGES,
     payload: {
+      type,
       name,
       id,
       message,
