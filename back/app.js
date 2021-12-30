@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
     io.emit("newConnection", {
       id: id,
       name: name,
-      time: new Date(),
+      time: new Date().toString(),
       connectedUsers: connectedUsers,
     });
   });
@@ -54,7 +54,7 @@ io.on("connection", (socket) => {
       name: info.name,
       id: info.id,
       message: info.message,
-      time: new Date(),
+      time: new Date().toString(),
     });
   });
 
@@ -69,14 +69,14 @@ io.on("connection", (socket) => {
       name: info.name,
       id: info.id,
       message: info.message,
-      time: new Date(),
+      time: new Date().toString(),
     });
   });
 
   socket.on("disconnect", () => {
     const disconnectedUser = connectedUsers.find(
       (user) => user.socketId === socket.id
-    );
+    ) || { name: "someone", id: "fallback", socketId: "socketId_fallback" };
     disconnectedUser.time = new Date();
     io.emit("userDisconnect", disconnectedUser);
     connectedUsers = connectedUsers.filter(

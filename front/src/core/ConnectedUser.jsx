@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { setMessageToSocketId } from "../helper/actionsFunctions";
+import { setChatState, setMessageToSocketId } from "../helper/actionsFunctions";
 
-export default function ConnectedUser({ name, id, socketId }) {
+export default function ConnectedUser({ name, id, socketId, isMyself }) {
   const dispatch = useDispatch();
 
   let src = "/images/person.png";
@@ -14,6 +14,13 @@ export default function ConnectedUser({ name, id, socketId }) {
   const onUserClick = (e) => {
     e.preventDefault();
     dispatch(setMessageToSocketId(socketId));
+    let chatState = "person";
+    if (isMyself) {
+      chatState = "myself";
+    } else if (socketId === "global") {
+      chatState = "global";
+    }
+    dispatch(setChatState(chatState));
   };
 
   const handleKeyUp = (e) => {
@@ -22,6 +29,11 @@ export default function ConnectedUser({ name, id, socketId }) {
       onUserClick(e);
     }
   };
+
+  let myself = "";
+  if (isMyself) {
+    myself = "(yourself)";
+  }
 
   return (
     <div
@@ -35,7 +47,7 @@ export default function ConnectedUser({ name, id, socketId }) {
       <div className="connectedUserImgDiv">
         <img className="connectedUserImg" src={src} alt="img" />
       </div>
-      <div className="connectedUserName">{name}</div>
+      <div className="connectedUserName">{`${name} ${myself}`}</div>
     </div>
   );
 }
@@ -44,4 +56,5 @@ ConnectedUser.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   socketId: PropTypes.string.isRequired,
+  isMyself: PropTypes.bool.isRequired,
 };

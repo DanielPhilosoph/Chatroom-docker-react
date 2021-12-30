@@ -5,9 +5,15 @@ const initialState = {
   messages: [], // {name: string, id: string , message: string, time: Date}
   personalMessages: [],
   messageTo_socketId: "global", // should contain socketId
+  chatState: "global", // contain the chat state (what should be displayed)
 };
 export default function MainReducer(state = initialState, action = "") {
   switch (action.type) {
+    case "SET_CHAT_STATE":
+      return {
+        ...state,
+        chatState: action.payload.chatState,
+      };
     case "SET_USERNAME_AND_ID":
       return {
         ...state,
@@ -49,7 +55,6 @@ export default function MainReducer(state = initialState, action = "") {
         ],
       };
     case "ADD_TO_PERSONAL_MESSAGES":
-      console.log(action.payload);
       return {
         ...state,
         personalMessages: [

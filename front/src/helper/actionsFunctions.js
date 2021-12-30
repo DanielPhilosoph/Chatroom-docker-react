@@ -3,6 +3,7 @@ import {
   ADD_TO_MESSAGES,
   ADD_TO_PERSONAL_MESSAGES,
   REMOVE_CONNECTED_USER,
+  SET_CHAT_STATE,
   SET_CONNECTED_USERS,
   SET_MESSAGE_TO_SOCKET_ID,
   SET_USERNAME_AND_ID,
@@ -33,6 +34,13 @@ export function setConnectedUsers(connectedUsers) {
   return {
     type: SET_CONNECTED_USERS,
     payload: { connectedUsers },
+  };
+}
+
+export function setChatState(chatState = "global") {
+  return {
+    type: SET_CHAT_STATE,
+    payload: { chatState },
   };
 }
 

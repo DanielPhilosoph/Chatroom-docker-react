@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { formatDate } from "../helper/functions";
 
 export default function SpecialMessage({ type, name, time }) {
-  console.log(time);
   const formattedDate = formatDate(time);
   let className;
   let message;
