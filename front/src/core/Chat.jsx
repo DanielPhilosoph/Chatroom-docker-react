@@ -18,6 +18,9 @@ export default function Chat() {
 
   const onSendClick = (e) => {
     e.preventDefault();
+    if (messageRef.current.value === "") {
+      return;
+    }
     if (state.messageTo_socketId === "global") {
       socket.emit("message", {
         name: state.username,
