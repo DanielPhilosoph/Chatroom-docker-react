@@ -1,8 +1,10 @@
 import {
   ADD_CONNECTED_USER,
   ADD_TO_MESSAGES,
+  ADD_TO_PERSONAL_MESSAGES,
   REMOVE_CONNECTED_USER,
   SET_CONNECTED_USERS,
+  SET_MESSAGE_TO_SOCKET_ID,
   SET_USERNAME_AND_ID,
 } from "../Actions";
 
@@ -44,5 +46,26 @@ export function addToMessages(id, name, message, time, type) {
       message,
       time,
     },
+  };
+}
+
+export function addToPersonalMessages(id, name, message, time, from, to) {
+  return {
+    type: ADD_TO_PERSONAL_MESSAGES,
+    payload: {
+      from,
+      to,
+      name,
+      id,
+      message,
+      time,
+    },
+  };
+}
+
+export function setMessageToSocketId(socketId) {
+  return {
+    type: SET_MESSAGE_TO_SOCKET_ID,
+    payload: { messageTo_socketId: socketId },
   };
 }

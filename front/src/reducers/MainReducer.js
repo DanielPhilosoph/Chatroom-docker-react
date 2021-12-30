@@ -3,6 +3,8 @@ const initialState = {
   id: "",
   connectedUsers: [], // {name: string, id: string}
   messages: [], // {name: string, id: string , message: string, time: Date}
+  personalMessages: [],
+  messageTo_socketId: "global", // should contain socketId
 };
 export default function MainReducer(state = initialState, action = "") {
   switch (action.type) {
@@ -45,6 +47,27 @@ export default function MainReducer(state = initialState, action = "") {
             time: action.payload.time,
           },
         ],
+      };
+    case "ADD_TO_PERSONAL_MESSAGES":
+      console.log(action.payload);
+      return {
+        ...state,
+        personalMessages: [
+          ...state.personalMessages,
+          {
+            from: action.payload.from,
+            to: action.payload.to,
+            name: action.payload.name,
+            id: action.payload.id,
+            message: action.payload.message,
+            time: action.payload.time,
+          },
+        ],
+      };
+    case "SET_MESSAGE_TO_SOCKET_ID":
+      return {
+        ...state,
+        messageTo_socketId: action.payload.messageTo_socketId,
       };
     default:
       return state;

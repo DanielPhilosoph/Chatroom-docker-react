@@ -25,6 +25,7 @@ let connectedUsers = [];
 //? Socket.io Connection
 io.on("connection", (socket) => {
   console.log("a user connected");
+  socket.join(socket.id);
 
   socket.on("onConnect", ({ name, id }) => {
     const user = connectedUsers.find((user) => user.id === id);
@@ -60,15 +61,24 @@ io.on("connection", (socket) => {
   //? -----------------------------------
   //! Understand how this works and implement!!
   //? -----------------------------------
-  socket.on("privateMessage", (anotherSocketId, msg) => {
-    socket.to(anotherSocketId).emit("privateMessage", socket.id, msg);
+  socket.on("privateMessage", (anotherSocketId, info) => {
+    console.log("you send a private message to ", anotherSocketId);
+    socket.to(anotherSocketId).emit("privateMessage", {
+      from: socket.id,
+      to: anotherSocketId,
+      name: info.name,
+      id: info.id,
+      message: info.message,
+      time: new Date(),
+    });
   });
 
   socket.on("disconnect", () => {
-    io.emit(
-      "userDisconnect",
-      connectedUsers.find((user) => user.socketId === socket.id)
+    const disconnectedUser = connectedUsers.find(
+      (user) => user.socketId === socket.id
     );
+    disconnectedUser.time = new Date();
+    io.emit("userDisconnect", disconnectedUser);
     connectedUsers = connectedUsers.filter(
       (user) => user.socketId !== socket.id
     );
