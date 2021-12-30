@@ -65,7 +65,7 @@ body {
 
 .usersOnlineHeaderDiv {
   background-color: #315b8a;
-  height: 60px;
+  height: 8%;
   font-family: "Raleway", sans-serif;
   font-size: 30px;
   padding: 5px 10px;
@@ -74,7 +74,7 @@ body {
 
 .chatHeaderDiv {
   background-color: #165eb1;
-  height: 60px;
+  height: 8%;
   padding: 7px 10px;
   color: whitesmoke;
 }
@@ -93,6 +93,7 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 30px;
   padding: 0px 10px;
+  word-break: break-word;
 }
 
 .sendMassageDiv {
@@ -106,7 +107,7 @@ body {
 }
 
 .messageInput {
-  width: 90%;
+  width: 92%;
   height: 30px;
   border-radius: 5px;
   border: 0;
@@ -118,7 +119,7 @@ body {
 }
 
 .sendButton {
-  padding: 3px 10px;
+  padding: 3px 1%;
   margin-left: 22px;
   border: 0.1px solid rgb(92, 92, 92);
   border-radius: 50%;
@@ -135,7 +136,7 @@ body {
   max-width: 60%;
   min-width: 20%;
   background-color: rgb(212, 212, 212);
-  border-radius: 5px;
+  border-radius: 15px;
   width: -moz-fit-content;
   width: fit-content;
   word-break: break-word;
@@ -244,7 +245,38 @@ body {
   margin: auto 0;
 }
 
+@media screen and (max-width: 1100px) {
+  .chatLogo {
+    border-radius: 50%;
+    width: 40px;
+    margin-top: -10px;
+  }
+  .chatHeaderText {
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    padding: 0px 10px;
+    word-break: break-word;
+  }
+  .chatHeaderDiv {
+    padding: 20px 10px;
+  }
+}
+
 @media screen and (max-width: 900px) {
+  .chatLogo {
+    border-radius: 50%;
+    width: 30px;
+    margin-top: -10px;
+  }
+  .chatHeaderText {
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    padding: 0px 10px;
+    word-break: break-word;
+  }
+  .chatHeaderDiv {
+    padding: 6px 10px;
+  }
   .warperChatDiv {
     flex-direction: column-reverse;
     gap: 30px;
@@ -263,5 +295,63 @@ body {
   .massagesWarperDiv {
     height: 78%;
     overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .messageInput {
+    width: 91%;
+  }
+  .sendButton {
+    padding: 2px 7px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .messageInput {
+    width: 88%;
+  }
+  .sendButton {
+    margin-left: 13px;
+  }
+  .chatHeaderDiv {
+    padding: 9px 10px;
+  }
+  .chatHeaderText {
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    padding: 0px 10px;
+    word-break: break-word;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .messageInput {
+    width: 83%;
+  }
+  .chatHeaderText {
+    font-size: 11px;
+  }
+  .sendButton {
+    margin-left: 13px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .messageInput {
+    width: 80%;
+  }
+  .chatHeaderText {
+    font-size: 5px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .messageInput {
+    width: 76%;
+  }
+  .chatHeaderText {
+    font-size: 8px;
   }
 }

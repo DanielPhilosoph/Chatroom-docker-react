@@ -108,10 +108,7 @@ export default function Chat() {
           <img className="chatLogo" src="/images/chat.png" alt="Img" />
           <span className="chatHeaderText">{header}</span>
         </div>
-        {/*
-        // TODO when talking to someone private - should change to load private messages
-        // TODO when to many messages, show create a scroll
-        */}
+
         <MessagesDiv
           ref={massagesWarperDiv}
           messageTo_socketId={state.messageTo_socketId}

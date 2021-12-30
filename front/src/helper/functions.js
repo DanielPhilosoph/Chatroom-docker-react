@@ -10,6 +10,9 @@ export function validateName(name) {
   if (!/^[a-zA-Z- 0-9]+$/.test(name)) {
     return { valid: false, error: "Can't contain special characters" };
   }
+  if (name.length > 25) {
+    return { valid: false, error: "Can't be longer then 25 characters" };
+  }
   return { valid: true };
 }
 
