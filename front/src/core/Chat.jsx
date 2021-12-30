@@ -5,6 +5,7 @@ import ConnectedUser from "./ConnectedUser";
 import { SocketContext } from "../socket/SocketContext";
 import MessagesDiv from "./MessagesDiv";
 import { addToPersonalMessages } from "../helper/actionsFunctions";
+import { firstLetterUppercase } from "../helper/functions";
 
 export default function Chat() {
   const messageRef = useRef();
@@ -65,6 +66,20 @@ export default function Chat() {
     }
   };
 
+  let header = "";
+  switch (state.chatState.currentState) {
+    case "global":
+      header = "Chat";
+      break;
+    case "myself":
+      header = `${state.chatState.sendTo} (Me)`;
+      break;
+    default:
+      header = state.chatState.sendTo;
+      break;
+  }
+  header = firstLetterUppercase(header);
+
   return (
     <div className="warperChatDiv">
       <div className="usersOnlineDiv">
@@ -91,7 +106,7 @@ export default function Chat() {
       <div className="chatDiv">
         <div className="chatHeaderDiv">
           <img className="chatLogo" src="/images/chat.png" alt="Img" />
-          <span className="chatHeaderText">Chat</span>
+          <span className="chatHeaderText">{header}</span>
         </div>
         {/*
         // TODO when talking to someone private - should change to load private messages

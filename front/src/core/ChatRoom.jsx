@@ -45,10 +45,7 @@ export default function ChatRoom() {
       dispatch(removeConnectedUser(msg.id));
     });
 
-    // TODO should get a private MSG from someone
-    // TODO add to general state as ${name}ChatMessages.
     socket.on("privateMessage", (msg) => {
-      console.log(`I got a personal message from ${msg.from}`);
       dispatch(
         addToPersonalMessages(
           msg.id,

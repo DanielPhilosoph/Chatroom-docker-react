@@ -37,10 +37,10 @@ export function setConnectedUsers(connectedUsers) {
   };
 }
 
-export function setChatState(chatState = "global") {
+export function setChatState(sendTo, currentState) {
   return {
     type: SET_CHAT_STATE,
-    payload: { chatState },
+    payload: { currentState, sendTo },
   };
 }
 

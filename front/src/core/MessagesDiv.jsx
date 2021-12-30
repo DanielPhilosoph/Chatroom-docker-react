@@ -7,7 +7,7 @@ import SpecialMessage from "./SpecialMessage";
 const MessagesDiv = React.forwardRef((props, ref) => {
   const state = useSelector((state_) => state_);
   console.log(state);
-  if (state.chatState === "global") {
+  if (state.chatState.currentState === "global") {
     return (
       <div ref={ref} className="massagesWarperDiv">
         {state.messages.map((message) => {
@@ -50,7 +50,7 @@ const MessagesDiv = React.forwardRef((props, ref) => {
       </div>
     );
   }
-  if (state.chatState === "person") {
+  if (state.chatState.currentState === "person") {
     return (
       <div ref={ref} className="massagesWarperDiv">
         {state.personalMessages.map((personalMessage) => {
@@ -74,7 +74,7 @@ const MessagesDiv = React.forwardRef((props, ref) => {
       </div>
     );
   }
-  if (state.chatState === "myself") {
+  if (state.chatState.currentState === "myself") {
     return (
       <div ref={ref} className="massagesWarperDiv">
         {state.personalMessages.map((personalMessage) => {

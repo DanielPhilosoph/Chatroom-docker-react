@@ -17,3 +17,7 @@ export function formatDate(time) {
   const date = new Date(time);
   return moment(date).format("HH:mm");
 }
+
+export function firstLetterUppercase(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

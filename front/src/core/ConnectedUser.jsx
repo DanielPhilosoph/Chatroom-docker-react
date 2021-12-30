@@ -14,13 +14,16 @@ export default function ConnectedUser({ name, id, socketId, isMyself }) {
   const onUserClick = (e) => {
     e.preventDefault();
     dispatch(setMessageToSocketId(socketId));
-    let chatState = "person";
+    let sendTo = name;
+    let currentState = "person";
     if (isMyself) {
-      chatState = "myself";
+      sendTo = name;
+      currentState = "myself";
     } else if (socketId === "global") {
-      chatState = "global";
+      sendTo = "everyone";
+      currentState = "global";
     }
-    dispatch(setChatState(chatState));
+    dispatch(setChatState(sendTo, currentState));
   };
 
   const handleKeyUp = (e) => {
