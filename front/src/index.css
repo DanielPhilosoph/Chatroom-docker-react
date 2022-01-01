@@ -245,6 +245,17 @@ body {
   margin: auto 0;
 }
 
+.connectedUserNewMessages {
+  float: right;
+  margin: auto;
+  background-color: red;
+  color: whitesmoke;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 1100px) {
   .chatLogo {
     border-radius: 50%;
