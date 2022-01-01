@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  server-chat:
+    build: "./back"
+    ports:
+      - "3001:3001"
+  ui-chat:
+    build: "./front"
+    ports:
+      - "3000:3000"
