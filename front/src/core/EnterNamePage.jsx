@@ -30,6 +30,10 @@ export default function EnterNamePage() {
     }
   };
 
+  document.documentElement.style.setProperty(
+    "--background-color",
+    "linear-gradient(90deg,rgba(45, 226, 255, 1) 0%,rgba(19, 50, 200, 1) 0%,rgba(0, 219, 255, 1) 100%)"
+  );
   return (
     <div className="EnterNamePageDiv">
       <Form className="form">
